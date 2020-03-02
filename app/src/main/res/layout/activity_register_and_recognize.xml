@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/upload_bg"
+    android:orientation="vertical"
+    android:gravity="center_vertical">
+
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/recycler_view_person"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <View
+        android:id="@+id/strut"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerVertical="true"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@id/strut">
+
+
+        <TextureView
+            android:id="@+id/texture_preview"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            />
+
+        <com.arcsoft.arcfacedemo.widget.FaceRectView
+            android:id="@+id/face_rect_view"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@id/strut">
+
+        <ImageView
+            android:id="@+id/im1"
+            android:layout_width="wrap_content"
+            android:layout_height="220dp"
+            android:background="@drawable/result"
+            />
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_show"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="55dp"-->
+            <!--android:gravity="center"-->
+            <!--android:textColor="#FFFFFF"-->
+            <!--android:textSize="25sp"-->
+            <!--android:fontFamily="@font/lingyueheiti"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_show2"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="55dp"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_below="@id/tv_show"-->
+            <!--android:textColor="#FFFFFF"-->
+            <!--android:textSize="25sp"-->
+            <!--android:fontFamily="@font/lingyueheiti"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_show3"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="55dp"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_below="@id/tv_show2"-->
+            <!--android:textColor="#FFFFFF"-->
+            <!--android:textSize="25sp"-->
+            <!--android:fontFamily="@font/lingyueheiti"/>-->
+
+        <TextView
+            android:id="@+id/tv_show4"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:gravity="center"
+            android:lines="3"
+            android:layout_below="@id/tv_show5"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:fontFamily="@font/lingyueheiti"/>
+
+        <TextView
+            android:id="@+id/tv_show5"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:gravity="center"
+            android:lines="8"
+            android:ellipsize="end"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:fontFamily="@font/lingyueheiti"/>
+
+        <com.arcsoft.arcfacedemo.activity.RadarView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/radar"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            app:circleColor="#339999"
+            app:circleNum="4"
+            app:flicker="3"
+            app:raindropNum="4"
+            app:showCross="true"
+            app:speed="5"
+            app:sweepColor="#339999" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tv_show4"
+            android:gravity="center"
+            android:text="人脸识别"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:fontFamily="@font/lingyueheiti"/>
+
+        <!--<TextView-->
+            <!--android:id="@+id/notification_register_result"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/im1"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:fontFamily="@font/lingyueheiti"-->
+            <!--android:textColor="#FFFFFF" />-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_below="@+id/im1">-->
+
+            <!--<Switch-->
+                <!--android:id="@+id/switch_liveness_detect"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:text="@string/liveness_detect"-->
+                <!--android:textSize="22sp"-->
+                <!--android:fontFamily="@font/lingyueheiti"-->
+                <!--android:textColor="#FFFFFF"-->
+                <!--/>-->
+
+        <!--</RelativeLayout>-->
+    </RelativeLayout>
+
+
+</RelativeLayout>

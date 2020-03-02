@@ -1,0 +1,47 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="EditScreenTextInputLayoutStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlNormal">@color/textInputLayout</item>
+        <item name="colorControlActivated">@color/textInputLayout</item>
+        <item name="colorControlHighlight">@color/textInputLayout</item>
+        <item name="colorAccent">@color/textInputLayout</item>
+        <item name="android:textColorHint">@color/textInputLayout</item>
+    </style>
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+    <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+    <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+    <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+    <!--<item name="colorAccent">@color/colorAccent</item>-->
+    <!--<item name="windowNoTitle">true</item>-->
+    <!--<item name="android:windowFullscreen">true</item>-->
+    <!--</style>-->
+
+    <!--<style name="TextInputLabel" parent="TextAppearance.AppCompat">-->
+    <!--&lt;!&ndash; Hint color and label color in FALSE state &ndash;&gt;-->
+    <!--<item name="android:textColorHint">#acacac</item>-->
+    <!--<item name="android:textSize">30sp</item>-->
+    <!--&lt;!&ndash; Label color in TRUE state and bar color FALSE and TRUE State &ndash;&gt;-->
+    <!--<item name="colorAccent">#acacac</item>-->
+    <!--<item name="colorControlNormal">#acacac</item>-->
+    <!--<item name="colorControlActivated">#FFFFFF</item>-->
+    <!--</style>-->
+
+    <!--<style name="SwitchCompatTheme" >-->
+    <!--<item name="colorControlActivated">#f00</item>-->
+    <!--</style>-->
+    <!--<style name="SwitchCompatStyle" >-->
+    <!--<item name="android:thumb">@drawable/switch_thumb</item>-->
+    <!--<item name="trackTint">@color/switch_color</item>-->
+    <!--</style>-->
+
+</resources>
+

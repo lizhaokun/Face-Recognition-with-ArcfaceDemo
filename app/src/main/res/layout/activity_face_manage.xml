@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/q"
+    tools:context=".activity.FaceManageActivity">
+
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/relat1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="0.7"-->
+        <!--android:layout_alignBottom="@id/relat2">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:fontFamily="@font/lingyueheiti"-->
+            <!--android:gravity="center"-->
+            <!--android:text="@string/notification_register"-->
+            <!--android:textColor="#FFFFFF"-->
+            <!--android:textSize="21sp" />-->
+
+    <!--</RelativeLayout>-->
+
+    <RelativeLayout
+        android:id="@+id/relat2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3"
+        android:orientation="vertical">
+
+        <!--<View-->
+            <!--android:id="@+id/v2"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_centerInParent="true"/>-->
+
+        <Button
+            android:id="@+id/btn_r"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/e"
+            android:fontFamily="@font/lingyueheiti"
+            android:onClick="batchRegister"
+            android:text="请点我"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
+
+
+        <Button
+            android:id="@+id/btn_c"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/btn_r"
+            android:background="@drawable/e"
+            android:fontFamily="@font/lingyueheiti"
+            android:onClick="clearFaces"
+            android:text="清除人脸"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
+
+
+        <TextView
+            android:id="@+id/notification_register_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/btn_c"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="50dp"
+            android:layout_marginVertical="15dp"
+            android:fontFamily="@font/lingyueheiti"
+            android:textColor="#FFFFFF" />
+    </RelativeLayout>
+</LinearLayout>
