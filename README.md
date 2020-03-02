@@ -18,5 +18,5 @@ SDK选择Android7.0，安装Cmake和NDK（都在AS中可以安装）
   进入界面后，点击更新数据库按钮即可实现数据库的更新，这个操作只需要在第一次安装app和后台有数据更新时点击，它会删除本地的数据信息并且从后台下载新的信息，然后点击上方第一个按钮就可以进行引擎的激活和图片的注册并进行识别。   
   
 # 运行结果
-<img src="https://github.com/lizhaokun/Face-Recognition-with-ArcfaceDemo/tree/master/image/1.jpg" width="100" alt="界面"/>
+<img src="./image/1.jpg" width="100" alt="界面"/>
 ![result2](./image/1.jpg) 
