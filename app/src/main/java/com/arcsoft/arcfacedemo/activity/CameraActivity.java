@@ -137,7 +137,7 @@ public class CameraActivity extends AppCompatActivity{
         btn_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activeEngine(null);
+
                 startActivity(btn_camera_intent);
             }
         });
@@ -151,10 +151,11 @@ public class CameraActivity extends AppCompatActivity{
                 if (!file.exists()){
                     file.mkdirs();
                 }
+                activeEngine(null);
 
-                deleteAllFiles(new File(arcfacedemo_path));
-                getPhotoPathRequest();
-                clearFaces(v);
+//                deleteAllFiles(new File(arcfacedemo_path));
+//                getPhotoPathRequest();
+//                clearFaces(v);
             }
         });
         ConfigUtil.setFtOrient(CameraActivity.this, FaceEngine.ASF_OP_0_HIGHER_EXT);
@@ -261,52 +262,52 @@ public class CameraActivity extends AppCompatActivity{
         }
     }
 
-    public void getPhotoPathRequest() {
-        //请求地址
-        String url = "http://114.213.210.211:8080/api/worker/list";    //注①
-        String tag = "getWorkerListJSON";    //注②
-//        final ArrayList<String> PathList = new ArrayList<String>();
-        final DownloadUtils downloadUtils = new DownloadUtils(CameraActivity.this);
-
-        //取得请求队列
-        final RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-
-        //防止重复请求，所以先取消tag标识的请求队列
-        requestQueue.cancelAll(tag);
-        //创建JsonObjectRequest，定义字符串请求的请求方式为GET(省略第一个参数会默认为GET方式)
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-//                    ArrayList<String> list = new ArrayList<>();
-                    JSONArray workerList = response.getJSONArray("workerList");
-                    for (int i = 0; i < workerList.length(); i++) {
-                        JSONObject jsonObject = workerList.getJSONObject(i);
-                        String ImageUrl = "http://114.213.210.211:8080/api/download/" + jsonObject.getString("id");
-                        String ImageName = jsonObject.getString("photoName");
+//    public void getPhotoPathRequest() {
+//        //请求地址
+//        String url = "http://114.213.210.211:8080/api/worker/list";    //注①
+//        String tag = "getWorkerListJSON";    //注②
+////        final ArrayList<String> PathList = new ArrayList<String>();
+//        final DownloadUtils downloadUtils = new DownloadUtils(CameraActivity.this);
 //
-//                        String filename = checkFileName(list, ImageName, 0);
-                        downloadUtils.downloadImage(ImageUrl, ImageName);
-                        System.out.println("xiazaichenggong");
-                    }
-                    showToast("数据下载成功！");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("666");
-            }
-
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("JsonObjectRequest", error.getMessage());
-                showToast("数据库连接失败！");
-            }
-        });
-
-        jsonObjectRequest.setTag(tag);
-        requestQueue.add(jsonObjectRequest);
-    }
+//        //取得请求队列
+//        final RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+//
+//        //防止重复请求，所以先取消tag标识的请求队列
+//        requestQueue.cancelAll(tag);
+//        //创建JsonObjectRequest，定义字符串请求的请求方式为GET(省略第一个参数会默认为GET方式)
+//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                try {
+////                    ArrayList<String> list = new ArrayList<>();
+//                    JSONArray workerList = response.getJSONArray("workerList");
+//                    for (int i = 0; i < workerList.length(); i++) {
+//                        JSONObject jsonObject = workerList.getJSONObject(i);
+//                        String ImageUrl = "http://114.213.210.211:8080/api/download/" + jsonObject.getString("id");
+//                        String ImageName = jsonObject.getString("photoName");
+////
+////                        String filename = checkFileName(list, ImageName, 0);
+//
+//                        System.out.println("xiazaichenggong");
+//                    }
+//                    showToast("数据下载成功！");
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//                System.out.println("666");
+//            }
+//
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.e("JsonObjectRequest", error.getMessage());
+//                showToast("数据库连接失败！");
+//            }
+//        });
+//
+//        jsonObjectRequest.setTag(tag);
+//        requestQueue.add(jsonObjectRequest);
+//    }
 
     public void deleteAllFiles(File root) {
         File files[] = root.listFiles();

@@ -204,6 +204,7 @@ public class RegisterAndRecognizeActivity extends AppCompatActivity implements V
         previewView.getViewTreeObserver().addOnGlobalLayoutListener(this);
         faceRectView = findViewById(R.id.face_rect_view);
 
+
         name_list = getFilesAllName(Environment.getExternalStoragePublicDirectory("").getAbsolutePath()+"/arcfacedemo/register/");
         int name_list_len = name_list.size();
         if (name_list_len==0){
@@ -649,7 +650,7 @@ public class RegisterAndRecognizeActivity extends AppCompatActivity implements V
         if (facePreviewInfoList == null || facePreviewInfoList.size() == 0) {
             requestFeatureStatusMap.clear();
             livenessMap.clear();
-            tvshow4.setText("目标待识别");
+//            tvshow4.setText("目标待识别");
             tvshow5.setText("目标待识别");
             return;
         }
@@ -708,22 +709,23 @@ public class RegisterAndRecognizeActivity extends AppCompatActivity implements V
                         if (compareResult.getSimilar() >= SIMILAR_THRESHOLD) {
 //                            tvshow5.setText("相似程度：" + compareResult.getSimilar());
                             final String UserName = compareResult.getUserName();
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    getPhotoPathRequest(UserName, new VolleyCallback() {
-                                        @Override
-                                        public void onSuccess(String result1, String result2, String result3, String result4) {
-//                                            tvshow1.setText("姓名：" + result1);
-//                                            tvshow2.setText("性别：" + result2);
-//                                            tvshow3.setText("年龄：" + result3);
-//                                            tvshow4.setText("职务：" + result4);
-                                            tvshow5.setText("姓名：" + result1);
-                                        }
-                                    });
-                                }
-                            });
-                            tvshow4.setText("年龄：" + age + "\n" + "性别：" + gender);
+//                            runOnUiThread(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    getPhotoPathRequest(UserName, new VolleyCallback() {
+//                                        @Override
+//                                        public void onSuccess(String result1, String result2, String result3, String result4) {
+////                                            tvshow1.setText("姓名：" + result1);
+////                                            tvshow2.setText("性别：" + result2);
+////                                            tvshow3.setText("年龄：" + result3);
+////                                            tvshow4.setText("职务：" + result4);
+//                                            tvshow5.setText("姓名：" + result1);
+//                                        }
+//                                    });
+//                                }
+//                            });
+                            tvshow5.setText("姓名：" + UserName + "\n" + "年龄：" + age + "\n" + "性别：" + gender);
+//                            tvshow4.setText("年龄：" + age + "\n" + "性别：" + gender);
 //                            Toast.makeText(this, "打卡成功", Toast.LENGTH_SHORT).show();
 
                             boolean isAdded = false;
@@ -757,7 +759,7 @@ public class RegisterAndRecognizeActivity extends AppCompatActivity implements V
 //                            tvshow1.setText("");
 //                            tvshow2.setText("");
 //                            tvshow3.setText("");
-                            tvshow4.setText("相似度低");
+//                            tvshow4.setText("相似度低");
                             tvshow5.setText("相似度低");
                             requestFeatureStatusMap.put(requestId, RequestFeatureStatus.FAILED);
                             faceHelper.addName(requestId, "VISITOR " + requestId);
@@ -811,58 +813,58 @@ public class RegisterAndRecognizeActivity extends AppCompatActivity implements V
         }
     }
 
-    public void getPhotoPathRequest(final String Name, final VolleyCallback callback) {
-        //请求地址
-        String url = "http://114.213.210.211:8080/api/worker/list";    //注①
-        String tag = "getWorkerListJSON";    //注②
-//        final ArrayList<String> PathList = new ArrayList<String>();
-
-        //取得请求队列
-        if(requestQueue==null){
-            requestQueue = Volley.newRequestQueue(getApplicationContext());
-        }
-
-        //防止重复请求，所以先取消tag标识的请求队列
-        requestQueue.cancelAll(tag);
-        //创建JsonObjectRequest，定义字符串请求的请求方式为GET(省略第一个参数会默认为GET方式)
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try{
-//                    ArrayList<String> list = new ArrayList<>();
-                    JSONArray workerList = response.getJSONArray("workerList");
-                    for(int i = 0; i < workerList.length(); i++){
-                        JSONObject jsonObject = workerList.getJSONObject(i);
-                        String ImageName = jsonObject.getString("photoName");
-                        if(ImageName.equals(Name + ".jpg")){
-                            String ImageWorkername = jsonObject.getString("workerName");
-                            String ImageGender = jsonObject.getString("gender");
-                            String ImageAge = jsonObject.getString("age");
-                            String ImagePosition = jsonObject.getString("workerPosition");
-                            callback.onSuccess(ImageWorkername, ImageGender, ImageAge, ImagePosition);
-                            break;
-                        }
-//                        String filename = checkFileName(list, ImageName, 0);
-//                        System.out.println("xiazaichenggong");
-                    }
-                }catch(JSONException e){
-                    e.printStackTrace();
-                }
-//                System.out.println("666");
-            }
-
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("JsonObjectRequest", error.getMessage());
-            }
-        });
-
-
-
-        jsonObjectRequest.setTag(tag);
-        requestQueue.add(jsonObjectRequest);
-    }
+//    public void getPhotoPathRequest(final String Name, final VolleyCallback callback) {
+//        //请求地址
+//        String url = "http://114.213.210.211:8080/api/worker/list";    //注①
+//        String tag = "getWorkerListJSON";    //注②
+////        final ArrayList<String> PathList = new ArrayList<String>();
+//
+//        //取得请求队列
+//        if(requestQueue==null){
+//            requestQueue = Volley.newRequestQueue(getApplicationContext());
+//        }
+//
+//        //防止重复请求，所以先取消tag标识的请求队列
+//        requestQueue.cancelAll(tag);
+//        //创建JsonObjectRequest，定义字符串请求的请求方式为GET(省略第一个参数会默认为GET方式)
+//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                try{
+////                    ArrayList<String> list = new ArrayList<>();
+//                    JSONArray workerList = response.getJSONArray("workerList");
+//                    for(int i = 0; i < workerList.length(); i++){
+//                        JSONObject jsonObject = workerList.getJSONObject(i);
+//                        String ImageName = jsonObject.getString("photoName");
+//                        if(ImageName.equals(Name + ".jpg")){
+//                            String ImageWorkername = jsonObject.getString("workerName");
+//                            String ImageGender = jsonObject.getString("gender");
+//                            String ImageAge = jsonObject.getString("age");
+//                            String ImagePosition = jsonObject.getString("workerPosition");
+//                            callback.onSuccess(ImageWorkername, ImageGender, ImageAge, ImagePosition);
+//                            break;
+//                        }
+////                        String filename = checkFileName(list, ImageName, 0);
+////                        System.out.println("xiazaichenggong");
+//                    }
+//                }catch(JSONException e){
+//                    e.printStackTrace();
+//                }
+////                System.out.println("666");
+//            }
+//
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.e("JsonObjectRequest", error.getMessage());
+//            }
+//        });
+//
+//
+//
+//        jsonObjectRequest.setTag(tag);
+//        requestQueue.add(jsonObjectRequest);
+//    }
 
     public interface VolleyCallback{
         void onSuccess(String result1,String result2,String result3,String result4);
